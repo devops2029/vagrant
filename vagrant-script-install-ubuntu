@@ -8,6 +8,18 @@ Ubuntu 20.04.6 LTS (Focal Fossa)
 
 Ubuntu 18.04.6 LTS (Bionic Beaver)
 
+set VAGRANT_HOME=F:\vagrant\storage
+
+vagrant box add hashicorp/jammy --provider=vmware_desktop
+vagrant box add hashicorp/bionic64 --provider=vmware_desktop
+vagrant box add bento/ubuntu-24.04 --provider=vmware_desktop
+
+cd F:\vagrant\vm\vm-01
+vagrant init bento/ubuntu-24.04
+vagrant up
+
+
+
 --------------------------------------
 
 Vagrant.configure("2") do |config|
