@@ -1,0 +1,43 @@
+
+
+Ubuntu 24.04.1 (Noble Numbat)
+
+Ubuntu 22.04.4 LTS (Jammy Jellyfish)
+
+Ubuntu 20.04.6 LTS (Focal Fossa)
+
+Ubuntu 18.04.6 LTS (Bionic Beaver)
+
+--------------------------------------
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "hashicorp/bionic64"
+  config.vm.provision "docker" do |d|
+    d.build_image "/vagrant/app"
+  end
+end
+
+--------------------------------------
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "hashicorp/bionic64"
+  config.vm.provision "docker",
+    images: ["ubuntu"]
+end
+
+--------------------------------------
+
+Vagrant.configure("2") do |config|
+  config.vm.provider "docker" do |d|
+    d.build_dir = "."  # Directory where the Dockerfile is located
+    d.image = "my-custom-image"  # Name of the image to build
+  end
+end
+
+docker build -t my-image .
+------------------------------------------------------------
+
+
+
+
+
